@@ -47,7 +47,7 @@ int main(void)
     }
 }
 
-void meow(void) //void-void = no input, no output
+void meow(void) // void-void = no input, no output
 {
     printf("meow\n");
 }

@@ -3,7 +3,7 @@
 
 int main(void)
 {
-    int x = get_int("x: "); //as we are using integers, there will be no decimals. It's called truncation. You can chance the integer to a float
+    int x = get_int("x: "); // As we are using integers, there will be no decimals. It's called truncation. You can chance the integer to a float
     int y = get_int("y: ");
 
     printf("%i\n", x + y);
