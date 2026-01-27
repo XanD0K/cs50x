@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.vscode/
+*.DS_Store
+week7-lecture/shows.db
+pset7/movies/movies.db
