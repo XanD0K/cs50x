@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <form action="/greet" method="post">
+        <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
+        <button type="submit">Greet</button>
+    </form>
+
+{% endblock %}
+
+<!--
+name="name"
+first name is the name of the HTML attribute that comes with the <input> tag
+the second "name" is the name of the HTTP parameter that I want to end up in the URL
+
+'action' attribute in 'form' allows me to specify where I'm submitting this
+method 'get' so taht the parameters appear in the URL
+OBS: using 'post' it hides the input, and it will not be exposed in the URL, which is appropriate for anything personal
+Just changing 'get' to 'post' we get the error "Method Not Allowed". By default, when you create a route using Flask 'app.py' file, only 'get' is going to be supported
+
+
+<meta name="viewport" content="initial-scale=1, width=device-width">
+That tag alone will make the webpage more mobile friendly
+
+After creating 'layout.html' and deleting almost all HTML syntax in here, we need to tell Flask how to embed this snippet in the full layout
+We do this using:
+{% raw %}
+{% extends "layout.html" %}
+{%block body %}
+{% endblock %}
+{% endraw %}
+-->
+

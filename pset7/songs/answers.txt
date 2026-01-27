@@ -1,0 +1,14 @@
+Listener's audio aura consists of medium to high energy (0.65906), medium valence (0.484443) and medium to high danceability (0.71646).
+That's a listener who enjoys music with energy and danceability, but not excessively. As for valence, it's a mixed state, showing no strong preference for any particular emotion.
+
+Using that calculus might not be the best way to representate the listener. A few hypothesis to improve that:
+It doesn't account all other songs he listened throught the year (101 and beyond).
+Perhaps the listener forgot a song playing on repeat in mute mode, which made it became one of the top 100 songs, even though it might be a song that he doesn't like that much.
+Maybe the listener played few songs heavily in a certain period of the year due to emotiong he was processing, but it was something temporary and didn't reflec listener's taste throughout the year.
+
+Ways to improve it:
+Assign weight to songs, or maybe add a buttom that allows users to tag that song for specific purposes.
+Separate the calculation by months or other time periods (Spotify already does that), so that it will take in considerantion listener's taste in those specifics periods.
+If Spotify defines "listened song" as one that was fully played, it should also be taken in consideration.
+For example, the listener might skip a specific song in its last 20 seconds, but it wouldn't be counted as "listened" even though it's a 4-5minutes song.
+So Spotify might implement a method that also accounts for songs that were partially listened to.

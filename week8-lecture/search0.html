@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+    <head>
+        <title>search</title>
+    </head>
+    <body>
+        <form action="https://www.google.com/search" method="get">
+            <input autocomplete="off" autofocus name="q" placeholder="Query" type="search">
+            <input type="submit" value="Google Search">
+        </form>
+    </body>
+</html>
+
+<!--
+'form' tag will implement an interactive section on a webpage. Is a way to collect user input and send it somewhere for processing
+'action' attribute tells the form where to send the user's data when they submit it
+'method attribute specifies how the form's data is sent to destination (defined by 'action')
+'method="get"' means the data will be sent as part of the URL, visible in the browser's address bar ('get' is the default)
+'name' attribute gives an input field and identifier
+'<input name="q" type="search">' means this input's data will be labeled as 'q' when sent to Google If I type 'cat', so q=cat
+'type' attribute defines what kind of input the <input> element is ('text' by default). It tells the browser how to display the input and what it does
+'type="search"' means it's a text box optmized for search queries
+'type="submit"' means it's a button that, when clicked, sends the form's data
+
+'autocomplete' attribute allows browser to remember what was typed (it is 'on' by default)
+'autofocus' attribute automatically highlights the search box (just like Google does). You should only have 1 autofocus field
+'placeholder' attribute allows the text box to contain any text you want
+-->

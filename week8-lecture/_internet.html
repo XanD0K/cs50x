@@ -1,0 +1,120 @@
+<!--
+Internet is a set of computers that can somehow intercommunicate
+In order to get information from A to B, we need to route this information
+Routers are computers (servers) whose purpose in life is to route information from one point to another
+The software that those servers are running give them the ability to route information
+But how those routers make decisions?
+For that, they use a language (protocol) called TCP/IP
+IP (Internet Protocol) is specifically focused on addressing servers in the world
+Every computer has an IP adress, a unique identifier that typically is of this format: #.#.#.#
+Each '#' is a number, typically 0 through 255
+That IP adress (IP version 4) is 32 bits in total (or 4 bytes). There's also an improved version of IP adresses known as "IP version 6"
+Any time you want to send a message over the internet, using the IP protocol, you firs have to make sure you write 2 addresses on the "envelope"
+First is the Destination Adress and Second is the Source Address
+Routing is these servers "passing off" these "envelopes" back and forth getting them closer to their destination
+It doesn't necessarily follows the shortest path, but in real world routers may ideally route data in the fastest way possible
+The information (what's inside the envelop) might be fragmented and also addressed with the same addresses
+In that case, the multiple envelops should also contain to information to reassemble the data at its destination
+For that, there's another protocol called TCP
+TCP, among other things, ensures that we aknowledge exactly how many envelopes were sent
+It also contain the sequence numbers of the "envelopes" (1 of 4 / 2 of 4/ ...)
+'PORT' is a unique numeric identifier for a specific internet service. It's standardized waht these port numers are
+Ex:
+- To uniquely identify worldwide web traffic, we use port 80 (HTTP) or 433 (HTTPS)
+- 25 is commonly used for email
+- 53 is commonly used for DNS
+So if the sender wants to request a web page, it can assign outside of the destination's IP address, a column and a port number (1.2.3.4:80)
+Now the destination knows that the "envelope" is destined for a web server
+A single server can handle multiple things. The ports allow servers to distinguish which type of service should be handling the request
+Summarizing, TCP/IP allows to uniquely address computers on the internet and to "guarantee" delivery of data between 2 points
+
+DNS (Domain Name System)
+It translates domain names to IP addresses (and they can go in the other direction as well)
+The internet service provider can recursively ask anotehr DNS server for a domain that is not in their database
+Around the world there are 'root servers', a small amount of servers that know all of the .com/.org/gov/ etc
+Even if they don't know the exact IP address, they might know the IP address of another DNS server who does haev the answer
+The computer might cache or remember these answers.
+DNS also provides expiration dates. So the asnwer to "what's the IP addresss for that domain?" expires after a certain ammount of time
+
+DHCP (Dynamic Host Configuration Protocol)
+It gives the computer an IP address when it boots up
+They also teel the computer what DNS server to use
+They also teel you the IP address of your default gateway, the router that you should use by default to hand one of those envelopes to
+
+HTTP (Hypertext Transfer Protocol)
+It governs how web browsers and web servers intercommunicate
+HTTPS is the secure version that uses encryption to ensure that when you're visiting a web page, you and only you can see taht web page
+The prefixer 'htpp://' and 'https://' are required when using a browser, even though the browser automatically tends to insert those prefixes automatically if the user don't do it
+They are used in URLs (Uniform Resource Locators)
+https://www.example.com/folder/file.thml
+- There might be 0 or more of those folders, and the file name might be explicitly or not
+- 'www.example.com' is the fully qualified domain name, a host name
+- 'example.com' is the domain name
+'.com' is a TLD (Top Level Domain). TLD indicates what type of domain it is.
+'.com' means commercial, '.gov' means government, '.org' means organization, '.us' ofr USA, '.uk' for UK, '.jp' for Japan, etc.
+If it is 2 letters length, it's a country code, including '.ai', '.tv', '.io'
+
+'GET' is used to get information. It is used by default when you just type a URL and hit ENTER
+'POST' is used to send information somewhere else, often sensitive information like credit card, email addresses, password.
+So inside of the "envelope" that's being sent from browser to server is a message like this:
+GET / HTTP/2
+Host: www.harvard.edu
+(...)
+What's going to come back from the server is another envelope inside of which is a response that might look like:
+HTTP/2 200
+Content-Type: text/html
+(...)
+
+
+Now on VS, terminal window:
+curl -I https://www.harvard.edu/
+
+HTTP/2 200
+server: nginx
+date: Thu, 10 Apr 2025 13:22:05 GMT
+content-type: text/html; charset=UTF-8
+vary: Accept-Encoding
+host-header: a9130478a60e5f9135f765b23f26593b
+link: <https://www.harvard.edu/>; rel=shortlink
+x-rq: dca5 181 249 80
+accept-ranges: bytes
+cache-control: max-age=300, must-revalidate
+x-cache: MISS
+
+'curl' means connect to an URL. it lets you simulate being a browser
+'-I' -> show just the headers
+'HTTP/2' -> '2' os the versions of HTTP that the browser is using
+'200' -> indicates success (and other numbrs to indicate failure or that something else happened)
+
+right click -> inspect -> network
+
+Using "curl -I http://www.harvard.edu/" we get:
+HTTP/1.1 301 Moved Permanently
+(...)
+Location: https://harvard.edu/
+'301' -> Means that it was moved permanently to that new location above
+
+Using "curl -I https://harvard.edu/":
+HTTP/2 301
+(...)
+location: https://www.harvard.edu/
+
+Using "curl -I https://www.harvard.edu/":
+HTTP/2 200
+(...)
+
+Browser (in cooperation with servers) will tolerate user typing in only 'harvard.edu'
+
+Another code is 404
+HTTP/2 404
+Content-Type: text/html
+'404' -> The web page simply does not exist = FILE NOT FOUND
+
+'300's usually indicates user's error. they relate to redirects
+'500's usually idicates server's error
+
+"curl -I http://safetyschool.org/"
+HTTP/1.1 301 Moved Permanently
+(...)
+Location: http://www.yale.edu
+-->

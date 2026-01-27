@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <script src="script.js" defer></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+        <title>My Webpage</title>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar fixed-top navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+                <div class="container-fluid">
+                    <div class="navbar-brand">Alexandre's HomePage</div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#MyNavBar" aria-controls="MyNavBar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="MyNavBar">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="drawings.html">Drawings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="hikes.html">Hikes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="canada.html">Canada</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav mb-2 mb-lg-0 navbar-icons">
+                        <li class="nav-item">
+                            <button id="light-mode" aria-label="Switch to light mode"><i class="fas fa-sun"></i></button>
+                        </li>
+                        <li class="nav-item">
+                            <button id="dark-mode" aria-label="Switch to dark mode"><i class="fas fa-moon"></i></button>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <h1 class="title">Welcome!</h1>
+                <p>
+                    Welcome to my page! Would you mind introducing yourself?
+                </p>
+                <form id="greeting-form">
+                    <input autocomplete="off" autofocus id="name" pattern="[a-zA-Z\s]*" placeholder="Name" title="Only letters and spaces allowed!" type="text" aria-label="Enter your name">
+                    <input type="submit" value="Submit">
+                    <p id="greeting"></p>
+                </form>
+
+            </section>
+            <section>
+                <h2 class="title">Brief description about me:</h2>
+                <p>
+                    I'm Alexandre, 30 years old and I work as an accountant.<br>
+                    In my life I've studied law, game design, accounting, but now I'm a CS50 student learning programming to change profession.<br>
+                    I'm from Brazil, specifically from the city of Belo Horizonte. Find out more about my city <a href="https://portalbelohorizonte.com.br/">here</a>.
+                </p>
+                <div class="gallery">
+                    <figure>
+                        <img class="initial-img gallery-img" alt="Belo Horizonte's Park" loading="lazy" src="source/bh/bh1.webp">
+                        <figcaption>Praça da Liberdade</figcaption>
+                    </figure>
+                    <figure>
+                        <img class="initial-img gallery-img" alt="Belo Horizonte's Lake" loading="lazy" src="source/bh/bh2.webp">
+                        <figcaption>Lagoa da Pampulha</figcaption>
+                    </figure>
+                </div>
+            </section>
+            <section>
+                <h2 class="title">My hobbies and interests</h2>
+                <p>
+                    I enjoy playing video-games. That's the reason I've started the gamedeveloper course.<br>
+                    I also enjoy listening to music. My favorite genre is 'lo-fi hiphop'. Here's one of my playlists:
+                </p>
+                <div id="playlist">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3UAzY5jwWjnFG1XIxAf20z?utm_source=generator" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+                <p>
+                    In the past I learned how to play a few instruments: acoustic guitar, keyboard and transverse flute. I don't play those anymore, but I do plan to get back to them.<br>
+                    Reading books is something I do on my free-time. I've read "The Lord of The Rings" collection dozens of times.<br>
+                    I also love Eastern culture, especially Japanese: animations, food, not to mention the things I hear about how well structured their societies are.
+                    For a person that lives in a third-world country, safety and economy of those countries really enchants me.<br>
+                    I also like to draw, either with pen and paper, or digital drawing. Check out a few of my <a href="drawings.html">drawings</a>!
+                </p>
+            </section>
+            <section>
+                <h2 class="title">My CS50 journey</h2>
+                <p>
+                    As mentioned, I tried different paths in life. While doing a game design course, I learned the basics of C#, so I had a better start in the CS50 course.<br>
+                    I'm really enjoying programming and solving problems, so I believe I made the right decision to follow this path.<br>
+                    I also set few TODO's during class and during the resolution of problem sets, so after course I'll come back to them (yes, Tideman is one of them).<br>
+                    The CS50 course is, by far, the best one I've taken. Despite trying to learn programming about 4 times and not succeeding, now it is just flowing naturally.
+                </p>
+            </section>
+            <section>
+                <h2 class="title">My goals</h2>
+                <p>I have a few professional and personal ambitions I want to achieve in the following years:</p>
+                    <ul>
+                        <li>I do want to dive in the programming world, and, later, make a living from it.</li>
+                        <li>I want to test myself, with big and ambitious projects.</li>
+                        <li>I want to move to Canada. My sister already lives there since 2019, so I want to live next to her.</li>
+                        <li>I want to visit Japan. There are lots of regions and cities in Japan that I want to explore.</li>
+                    </ul>
+            </section>
+        </main>
+        <footer>
+            <div class="socials">
+                <h4 class="title">My Socials</h4>
+                <ul>
+                    <li><a href="https://www.instagram.com/xand0k/">Instagram</a></li>
+                    <li><a href="https://www.linkedin.com/in/alexandre-duarte-ferrari/">Linkedin</a></li>
+                    <li><a href="https://myanimelist.net/profile/XanD0K">MyAnimeList</a></li>
+                    <li><a href="https://x.com/XanD0K">X</a></li>
+                </ul>
+            </div>
+            <p>Copyright &#169; Alexandre D. Ferrari. All rights reserved.</p>
+        </footer>
+    </body>
+</html>

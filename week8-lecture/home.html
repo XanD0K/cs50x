@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<!-- Building a home page for John Harvard -->
+
+<html lang='en'>
+    <head>
+        <title >home</title>
+    </head>
+    <body style="text-align: center;">
+    <!-- Alternatively I can create here a "parent" 'div' and change it -->
+        <header style="font-size: large;">
+            John Harvard
+        </header>
+        <main style="font-size:medium;">
+            Welcome to my home page!
+        </main>
+        <footer style="font-size: small;">
+            Copyright &#169; John Harvard
+        </footer>
+    </body>
+</html>
+
+<!--
+<p> paragraph was changed to <div> that stands for division, which is a generic rectangular region of the page
+Useful as those <div>s are, I can help the internet (search engines, AI, screen readers) understand a bit more what I mean for each of those divisions of the page to be
+So instead of generically saying <div> we can use 'semantic tags'(HTML tags) that are not as generic as <div> or <p>:
+<header>
+<main>
+<footer>
+When search engines or AIs are learning what the page is saying, it could logically give a little more weight to the header and the main part, and less weight to the footer
+-->
+
+<!--
+It is no the best practice to combine the structure of the page with the aesthetics thereof
+In other words, its not the best ideia to combine HTML with CSS all in the same place. Creating HTML to structure and CSS to style the page is an ideia
+There are technologies that actually do combine HTML with CSS, with the argument that it is easier to maintain the code and understand what is affecting what
+-->
+
+<!--
+There are a few ways to express characters on in HTML
+One of that ways is through HTML entities, a special syntax for symbols that aren't easily typed on the keyboard (just like &#169; in the code)
+
+
+CSS (Cascading Style Sheets) is a language that allows to stylizing web pages by specifying how certain tags should be appearing on the screen
+Here we have 'properties', a set of key value pairs, just like 'attributes' in the world of HTML
+A propertie allows you to specify the color, the margin, the height of something
+How to apply properties to elements inside of a web page? There are different ways:
+- type selector
+- class selector
+- ID selector -> we used that on 'link2.html' file
+- attribute selector
+- (...)
+To do that, we need to tell the browser that we want to include CSS in our page
+Inside of the <head> of a web page, there can be more.
+There can be a <style> tag where you can put some of those CSS properties
+Instead of using the <style> tag, you can use a 'link' tag <link href="styles.css" rel="stylesheet">
+There is another way to stylize web pages: style attributes
+
+In CSS we have key value pairs (key=value)
+style="text-align: center;"
+
+CSS properties
+"font-size: large;"
+text-align: center; (was in each of the <p> (now <div>), and now it's in the <body>)
+
+
+
+-->

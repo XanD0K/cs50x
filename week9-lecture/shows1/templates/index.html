@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <input autocomplete="off" autofocus placeholder="Query" type="search">
+
+    <ul></ul>
+
+    <script>
+
+        let input = document.querySelector('input');
+        input.addEventListener('input', async function() {
+            let response = await fetch('/search?q=' + input.value);
+            let shows = await response.text();
+            document.querySelector('ul').innerHTML = shows;
+        });
+
+    </script>
+
+
+{% endblock %}
+
+<!--
+<input> doesn't need a name attribute since we don't intend to submit the form to the server
+The 'async' function means taht what's about to happen is going to be asynchronous
+'let response = await fetch('/search?q=' + input.value);' is goingo to make an HTTP request from JS to the reserver requesting '/search?q='
+'let shows = await response.text(); ' means wait for a moment until you get back the text of the HTTP response in JS
+-->

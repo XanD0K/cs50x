@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+
+    <h1 class="text-start">Welcome {{ username }}</h1>
+    <h2 class="text-start">Cash: {{ cash | usd }}</h2>
+    <div class="text-start button">
+        <a class="btn btn-primary" href="/money">Add money</a>
+    </div>
+    <div class="portfolio">
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered table-striped">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Stock Symbol</th>
+                        <th scope="col">Average Bought Price</th>
+                        <th scope="col">Current Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Buy</th>
+                        <th scope="col">Sell</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- jinja loop for every stock -->
+                    {% for holding in holdings %}
+
+                        <tr>
+                            <td>{{ holding.name }}</td>
+                            <td>{{ holding.symbol }}</td>
+                            <td>{{ holding.avg_price | usd }}</td>
+                            <td>{{ holding.current_price | usd }}</td>
+                            <td>{{ holding.shares }}</td>
+                            <td><a href="/buy?symbol={{ holding.symbol }}" class="buy">Buy</a></td>
+                            <td><a href="/sell?symbol={{ holding.symbol }}" class="sell">Sell</a></td>
+                            <td>{{ (holding.current_price * holding.shares) | usd}}</td>
+                        </tr>
+
+                    {% endfor %}
+                    
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th scope="row">Stocks Value Total</th>
+                        <td colspan="6"></td>
+                        <td>{{ stocks_value_total | usd }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Cash</th>
+                        <td colspan="6"></td>
+                        <td>{{ cash | usd }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Portfolio Value</th>
+                        <td colspan="6"></td>
+                        <td>{{ portfolio_total | usd}}</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

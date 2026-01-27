@@ -1,0 +1,24 @@
+1. HTML
+<header>
+<main>
+<footer>
+<p>
+<h1>
+<input>
+<figure>
+<img>
+<section>
+
+2. CSS
+background-color
+color
+margin
+transition
+padding
+
+3. Bootstrap
+Implemented a navbar with Bootstrap website guidance: https://getbootstrap.com/docs/5.3/components/navbar/
+
+4. JavaScript
+Greetings and Geolocation - Gets user's name and location and output a personalized greetings message.
+Theme Switch - Switches between light and dark theme.

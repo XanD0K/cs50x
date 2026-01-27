@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+
+    {% if error %}
+
+        <div class="error-container">
+            <p class="error-template">
+                {{ error }}
+            </p>
+        </div>
+        
+    {% endif %}
+
+    {% if not symbol%}
+
+        <h1>Sell Stocks</h1>
+        <div class="block">
+            <form action="/sell" method="post" class="form">
+                <div class="form-div">
+                    <input type="hidden" name="form_type" value ="select">
+                    <label for="symbol" class="form-label">Choose a Stock</label>
+                    <select id="symbol" name="symbol" required class="select-box">
+                        <option disabled selected value="">Stock Symbol</option>
+                        {% for symbol in symbols %}
+                            <option value="{{ symbol.symbol }}">{{ symbol.symbol }}</option>
+                        {% endfor %}
+                    </select>
+                    <p class="error" id="select_error_message"></p>
+                </div>
+                <button class="btn btn-primary" id="select_button" type="submit">Select</button>
+                <!-- 'hidden' input to pass check50 validations -->
+                <input type="hidden" name="shares">
+            </form>
+        </div>
+
+    {% endif %}
+
+    {% if symbol %}
+
+        <h1>Stock Informations</h1>
+        <h2>{{ username }}, you have {{ cash | usd }} available</h2>
+        <div class="stock-container">
+            <div class="stock-info">
+                <h2>You have selected the {{ symbol }} stock</h2>
+
+                <p><span class="label">Company name: </span>{{ company_name }}</p>
+                <p><span class="label">Stock Symbol: </span>{{ symbol }}</p>
+                <p><span class="label">Current Price: </span>{{ price | usd }}</p>
+                <p><span class="label">Total shares owned: </span>{{ total_shares }}</p>
+
+                <form action="/sell" method="post">
+                    <input type="hidden" name="form_type" value="sell">
+                    <input type="hidden" name="symbol" value="{{ symbol }}">
+                    <div class="form-div">
+                        <label for="shares" class="form-label">Enter number of shares:
+                            <input autocomplete="off" class="form-control input-box" id ="shares" name="shares" placeholder="Number of Shares" required type="number" min="1" max="{{ total_shares }}" data-price="{{ price }}">
+                        </label>
+                        <p class="error" id="sell_error_message"></p>
+                    </div>
+                    <p>You'll receive: <span id="total_income">$0.00</span></p>
+                    <button class="btn btn-primary" id="sell_button" type="submit">Sell</button>
+                </form>
+            </div>
+        </div>
+        <div>
+            <a href="/sell" class="btn btn-primary">Back</a>
+        </div>
+
+    {% endif %}
+
+{% endblock %}

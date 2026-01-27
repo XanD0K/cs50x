@@ -1,0 +1,31 @@
+<!DOCTYPE html> <!-- That's the page's document type declaration. It says to the browser "here comes a web page written in HTML" -->
+
+<html lang='en'> <!-- 'lang' is indicating what human language is presumably going to be used throughout the rest of the page -->
+    <head> <!-- It's the top of the page (aka the tab title) -->
+        <title> <!-- Here is the open tag / start tag. It's the title of the page -->
+            hello, title
+        </title> <!-- Here is the close tag / end tag. It means the "title" is done -->
+    </head> <!-- Indicates that the 'head' is done -->
+    <body> <!-- Indicates the start of the body of the web page, the big contents of that white rectangular region -->
+        hello, body
+    </body> <!-- Indicates the end of the body of the web page -->
+</html> <!-- Indicates the end of the HTML itself -->
+
+<!--
+HTML (Hypertext Markup Language)
+It's the anguage in which web pages are written
+It has 'tags' and 'attributes', basic building blocks of the language
+
+VS Code in the cloud is already running a web server, but we can also start, inside of VS Code, a second web server
+For that we need to choose a different port number, a different TCP port that's not already being used by the server itself
+To do that, in terminal:
+http-server -> The default port is 8080
+While it's running, it will keep a log of every entry in the web site.
+
+Anything immediatly after the '<' sign is the name of the 'tag'
+The 'en' facilitate automatic translation or search engine optimization (SEO), etc
+Even though the HTML tag started with a language attribute, you don't need to repeat that attribute when closing it
+
+These tags should exist in one and only one place (certain locations)
+There are other tags that can be user zero or more times in the code
+-->

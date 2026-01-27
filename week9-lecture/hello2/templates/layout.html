@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <title>hello</title>
+    </head>
+
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+
+</html>
+
+
+
+<!--
+Both files ('index.html' and 'greet.html') have almost the same structure
+This file here will be a template to all otehr files, so that they don't use the same structure again, and again, and again.
+{% raw %}{% block body %}{% endblock %}{% endraw %} is teh way to specify to Flask "plug in the contents of another template here"
+It is a placeholder for a block of code, and not just words
+"body" is the name you are calling this, and is up to you to decide its name
+With that, those syntax were deleted from 'index.html' and 'greet.html'
+-->
+

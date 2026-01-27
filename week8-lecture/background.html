@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<!-- Demonstrates programmatic changes to style -->
+
+<html lang="en">
+    <head>
+        <title>background</title>
+    </head>
+    <body>
+        <button id="red">R</button>
+        <button id="green">G</button>
+        <button id="blue">B</button>
+        <script>
+
+            let body = document.querySelector('body');
+            document.querySelector('#red').addEventListener('click', function() {
+                body.style.backgroundColor = 'red';
+            });
+            document.querySelector('#green').addEventListener('click', function() {
+                body.style.backgroundColor = 'green';
+            });
+            document.querySelector('#blue').addEventListener('click', function() {
+                body.style.backgroundColor = 'blue';
+            });
+
+        </script>
+    </body>
+</html>
+
+<!--
+3 buttons with unique IDs
+variable 'body' is grabbing the element from the page
+Goes into the document using querySelector to find whatever element has unique id of 'red' per the '#' symbol
+on that element, add an event listener for the click event and call an anonymous function when that button is clicked
+That function uses JavaScript to modify the CSS of the page
+It goes into the 'body' element, access its style attribute, and access its backgroundColor property inside of the body tag style
+It will be turned to 'red' (or you can use its hexadecimal code #FF0000)
+Do the same for green and for blue
+
+CSS uses background-color
+JS uses backgroundColor
+-->

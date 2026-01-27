@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <h1>Register</h1>
+    <form action="/register" method="post">
+        <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
+        {% for sport in sports %}
+            <input name="sport" type="checkbox" value="{{ sport }}">{{ sport }}
+        {% endfor %}
+        <button type="submit">Register</button>
+    </form>
+
+{% endblock %}
+
+<!--
+<select name="sport" required>
+    <option disabled selected value="">Sport</option>
+'<select> is equivalent to a dropdown menu in a browser
+'<option disabled selected (...)' will display a "title" to that dropdown menu, so that user don't have a sport as a default option
+'type="radio"' is a radio button, with mutual exclusive options
+'type="checkbox"' allows choosing multiple options
+
+'required' is a kind of error checking preventing from submitting without valid data. It's a client side validation
+But we also need server side validation (implemented in 'app.py' with SPORTS).
+Also, instead of manually inputting all sports, we'll use a Jinja 'for' loop
+
+
+-->

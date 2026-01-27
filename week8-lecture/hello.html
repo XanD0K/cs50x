@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+    <head>
+        <script>
+
+            function greet()
+            {
+                let name = document.querySelector('#name').value;
+                alert('hello, ' + name);
+            }
+
+        </script>
+        <title>hello</title>
+    </head>
+    <body>
+        <form onsubmit="greet(); return false;">
+            <input autocomplete="off" autofocus id="name" name="name" placeholder="name" type="text">
+            <input type="submit">
+        </form>
+    </body>
+</html>
+
+
+<!--
+<script> holds the JavaScript code, just like <style> holds CSS
+'let name' -> declares a variable called name
+'document' is a build-in JS object representing the entire webpage (the DOM)
+'querySelector' is a method that find the first HTML element/tag matching a CSS selector (#name)
+'#name' is a CSS ID selector targeting the element with id="name". In that code, returns the <input>
+'.value' gets its value
+'alert()' is a built-in JS function that shows a pop-up (alert) box with a message
+JavaScript defines a function called 'greet' that runs when 'form' is submitted
+form onsubmit="gret(); return false;"
+The form will no longer submit to the server. It will greet the user (by calling a function called 'greet') and then return 'false' (return false = it never goes to the server)
+'onsubmit' -> an event that runs when the form is submitted. It allows to write JS inside of the quotes
+'return false' -> keeps the action local, so the page doesn't reload or navigate away
+
+To use that function, we add a <script> tag at the <head> and declare it
+Again. It's not a best practice to co-migle 2 languages
+-->
+
+
+
+<!--
+JAVASCRIPT
+Conditions, variables and loops are back.
+if ( x < y)
+{
+
+}
+else if (x > y)
+{
+
+}
+else
+{
+
+}
+
+Variables
+let counter = 0; // Here we use 'let' to declare a variable
+counter = counter +1;
+counter += 1;
+counter++;
+
+Loops
+for (let i = 0; i < 3; i++)
+{
+
+}
+while (true)
+{
+
+}
+
+
+To use it:
+1. we put a <script> tag in the <head> of the page (just like <style>), ans inside of that, the raw JavaScript
+It tends to be ideal not to co-mingle one language with another.
+2. Another way is to put a JavaScript tag with a 'src' element to specify anoteh file/URL from which you want the JavaScript to come
+<script src="scripts.js"></script>
+3. We can also put a script tag in the body of the page, below most everything else in the page, or a script tag with a file reference therein at the bottom of the page
+
+JavaScript can be very much event-driven:
+- blue
+- change
+- click
+- drag
+- focus
+- keyup
+- load
+- mousedown
+- mouseover
+- mouseup
+- submit
+- touchmove
+- unload
+- (...)
+All those events can happen inside of a browser, and JavaScript can be used to listen for and respod to
+-->

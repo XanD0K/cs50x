@@ -1,0 +1,17 @@
+sort1 uses: Bubble sort
+
+How do you know?: It took more time to sort the files 'random' and 'reversed', but it took almost no time to sort the files 'sorted'.
+That's because, in the 'sorted' files, the bubble sort only needs to go once through the numbers.
+It's not the merge sort because it took more time than the code 'sort2'.
+
+sort2 uses: Merge sort
+
+How do you know?: From the 3 available codes, the code 'sort2' was the one that took less time sorting the files 'random', 'reversed' and 'sorted'.
+For the 'sorted' files, it took almost the same time than the code 'sort1', but the program 'sort2' was better sorting the files 'random' and 'reversed'.
+
+sort3 uses: Selection sort
+
+How do you know?: To sort the files 'random' and 'reversed', it took more time than the code 'sort3', but less than the code 'sort1'.
+For the files 'sorted, it was the slowest of all three codes.
+Also, It took almost the same time to sort the files 'random', 'reversed' and 'sorted'.
+With those information I can conclude that 'sort3' uses the selection sort, since it takes the same time to sort all files, even though they are already sorted or not.

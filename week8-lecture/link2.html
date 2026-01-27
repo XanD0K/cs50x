@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+    <head>
+        <!-- The best practice is to move the <style> tag to a separate file -->
+        <style>
+
+            a
+            {
+                color: green;
+                text-decoration: none;
+            }
+
+            a:hover
+            {
+                text-decoration: underline;
+            }
+
+            #harvard
+            {
+                color: #ff0000
+            }
+
+            #yale
+            {
+                color: #0000ff
+            }
+
+        </style>
+        <title>link2</title>
+    </head>
+    <body>
+        <!-- link to the image website -->
+        Visit <a href="image.html">Harvard</a>
+
+        <!-- linking to an actual URL -->
+        <p>
+            <!-- won't work because it misses the protocols -->
+            Visit (no protocols) <a href="harvard.edu">Harvard</a>
+        </p>
+        <p>
+            <!-- changing that website to a mallicious one is how phishing works -->
+            Visit (with protocols) <a href="https://www.harvard.edu/">Harvard</a>
+        </p>
+        <p>
+            Visit (with protocols) <a href="https://www.harvard.edu/" id="harvard">Harvard</a>
+            or <a href="https://www.yale.edu/" id="yale">Yale</a>
+        </p>
+    </body>
+</html>
+
+<!--
+'a' us a type selector in CSS that targets all <a> tags in the HTML, unless overriden by more specific rules (like the ID selector)
+'text-decoration' is for the underline of the link (the default is 'underline')
+'a:hover' is a special keyword that the browser knows about. It's a state selector. It's when you are hovering over with the cursor
+The '#' symbol indicates an ID
+Since we can access 2 sites on that last paragraph, we created an ID for each of them
+id="harvard"
+id="yale"
+That way we can stylize each one of them separately in the <style> tag
+#harvard
+    {
+        color: red
+    }
+Instead of 'red', we can type it's hexadecimal code
+#harvard
+    {
+        color: #ff0000
+    }
+
+ID is meant to be unique. it is a mistake to use it in multiple places.
+To use that '#harvard' style elsewhere, jsut transform it in a class (.harvard) and in the <body>, instead of 'id="harvard"', we use class="harvard"
+
+-->

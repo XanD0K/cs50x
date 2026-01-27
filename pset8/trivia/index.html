@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+
+        <!-- Changing text font (w/ Google Fonts) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lustria&display=swap" rel="stylesheet">
+
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            // Part 1
+            document.addEventListener('DOMContentLoaded', function() {
+                // Correct
+                document.querySelectorAll('.correct').forEach(function(element) {
+                    element.addEventListener('click', function() {
+                        // Reset question's color (use 'this.closest()' otherwise all buttons in the page will be reseted)
+                        this.closest('.question').querySelectorAll('.correct, .incorrect').forEach(function(element) {
+                            element.style.backgroundColor = '';
+                        });
+                        this.style.backgroundColor = 'green';
+                        // Get the closest parent mathching 'question' class and select its respectitive paragraph 'p'
+                        this.closest('.question').querySelector('p').textContent = "Correct!";
+                    });
+                });
+                // Incorrect
+                document.querySelectorAll('.incorrect').forEach(function(element) {
+                    element.addEventListener('click', function() {
+                        this.closest('.question').querySelectorAll('.correct, .incorrect').forEach(function(element) {
+                            element.style.backgroundColor = '';
+                        });
+                        this.style.backgroundColor = 'red';
+                        this.closest('.question').querySelector('p').textContent = "Incorrect!";
+                    });
+                });
+                //Part 2
+                // Dictionary to simplify the if/else loop
+                const answers = {
+                    answer1: 'PARIS',
+                    answer2: 'CHINA',
+                    answer3: 'TUESDAY'
+                }
+
+                document.querySelectorAll('.submit').forEach(function(element) {
+                    element.addEventListener('click',function() {
+                        let input = this.closest('.question').querySelector('input');
+                        // Added 'trim()', 'replace()' and 'toUpperCase()' to allow any kind of input.
+                        let value = input.value.trim().replace(/[.!?]+$/, '').toUpperCase();
+                        let textbox = this.closest('.question').querySelector('p');
+                        if ( value === answers[input.id]) {
+                            input.style.backgroundColor = 'green';
+                            textbox.textContent = "Correct!";
+                        }
+                        else {
+                            input.style.backgroundColor = 'red';
+                            textbox.textContent = "Incorrect!";
+                        }
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                    <h2>Part 1: Multiple Choice</h2>
+                    <hr>
+                    <!-- TODO: Add multiple choice question here -->
+                <div class="question">
+                    <h3>What color is the sky?</h3>
+                    <input class="correct" type="button" value="Blue">
+                    <input class="incorrect" type="button" value="Red">
+                    <input class="incorrect" type="button" value="Yellow">
+                    <p id="text1-1"></p>
+                </div>
+                <div class="question">
+                    <h3>What is the chemical symbol for water?</h3>
+                    <input class="incorrect" type="button" value="H2O2">
+                    <input class="incorrect" type="button" value="HO2">
+                    <input class="correct" type="button" value="H2O">
+                    <p id="text1-2"></p>
+                </div>
+                <div class="question">
+                    <h3>Which of the following animals can fly?</h3>
+                    <input class="incorrect" type="button" value="Dog">
+                    <input class="correct" type="button" value="Bird">
+                    <input class="incorrect" type="button" value="Elephant">
+                    <p id="text1-3"></p>
+                </div>
+            </div>
+
+            <div class="section">
+                    <h2>Part 2: Free Response</h2>
+                    <hr>
+                    <!-- TODO: Add free response question here -->
+                <div class="question">
+                    <h3>What's the capital of France?</h3>
+                    <input autocomplete="off" id="answer1" placeholder="Answer" type="text">
+                    <button type="button" class="submit">Check answer</button>
+                    <p id="text2-1"></p>
+                </div>
+                <div class="question">
+                    <h3>In Which country is it located the Great Wall of China?</h3>
+                    <input autocomplete="off" id="answer2" placeholder="Answer" type="text">
+                    <button type="button" class="submit">Check answer</button>
+                    <p id="text2-2"></p>
+                </div>
+                <div class="question">
+                    <h3>What day comes after Monday?</h3>
+                    <input autocomplete="off" id="answer3" placeholder="Answer" type="text">
+                    <button type="button" class="submit">Check answer</button>
+                    <p id="text2-3"></p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

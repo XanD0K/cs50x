@@ -1,0 +1,25 @@
+<!-- 2024 -->
+ <!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>geolocation</title>
+    </head>
+    <body>
+        <script>
+
+            navigator.geolocation.getCurrentPosition(function(position) {
+                document.write(position.coords.latitude + ", " + position.coords.longitude);
+            });
+
+        </script>
+    </body>
+</html>
+
+<!--
+navigator' is a global variable that comes with browsers
+It has a 'geolocation' object associated with it
+It comes with a function called 'getCurrentPosition'
+You can then figure out the user's latitude and longitude
+'document.write' will write thse to the screen
+-->

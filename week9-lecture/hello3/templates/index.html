@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <form action="/" method="post">
+        <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
+        <button type="submit">Greet</button>
+    </form>
+
+{% endblock %}
+
+<!--
+You can get rid of action="/" because the browser, by default, will assume that you want to submit to the same URL from whence you came
+-->

@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+
+    {% if error %}
+
+        <div class="error-container">
+            <p class="error-template">
+                {{ error }}
+            </p>
+        </div>
+
+    {% endif %}
+
+    {% if not symbol %}
+
+        <!-- Search for stock (just like quote.html) -->
+        <h1>Search Stock</h1>
+        <div class="block">
+            <form action="/buy" method="post" class="form">
+                <div class="form-div">
+                    <input type="hidden" name="form_type" value ="search">
+                    <label for="symbol" class="form-label">Stock Symbol
+                        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="symbol" name="symbol" placeholder="Symbol" required type="text">
+                    </label>
+                    <p class="error" id="search_error_message"></p>
+                </div>
+                <button class="btn btn-primary" id="search_button" type="submit">Search</button>
+                <!-- 'hidden' input to pass check50 validations -->
+                <input type="hidden" name="shares">
+            </form>
+        </div>
+
+    {% endif %}
+
+    <!-- There is a stock. Will display its details and allow purchase -->
+    {% if symbol %}
+
+        <h1>Stock Informations</h1>
+        <h2>{{ username }}, you have {{ cash | usd }} available</h2>
+        <div class="stock-container">
+            <div class="stock-info">
+                <p><span class="label">Company name: </span>{{ company_name }}</p>
+                <p><span class="label">Stock Symbol: </span>{{ symbol }}</p>
+                <p><span class="label">Price: </span>{{ price | usd }}</p>
+
+                <form action="/buy" method="post">
+                    <input type="hidden" name="symbol" value="{{ symbol }}">
+                    <div class="form-div">
+                        <input type="hidden" name="form_type" value ="submit">
+                        <label for="shares" class="form-label">Enter number of shares:
+                            <input autocomplete="off" class="form-control input-box" id="shares" name="shares" placeholder="Shares" min="1" required type="number" data-price="{{ price }}">
+                        </label>
+                        <p class="error" id="buy_error_message"></p>
+                    </div>
+                    <p><span class="label">Total cost: </span> <span id="total_cost">$0.00</span></p>
+                    <button class="btn btn-primary" id="buy_button" type="submit">Buy</button>
+                </form>
+            </div>
+        </div>
+        <div>
+            <a href="/buy" class="btn btn-primary">Back</a>
+        </div>
+        
+    {% endif %}
+
+{% endblock %}

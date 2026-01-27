@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<!-- a page that someone can register for something -->
+
+<html lang='en'>
+    <head>
+        <title>register</title>
+    </head>
+    <body>
+        <form>
+            <input autocomplet="off" autofocus name="email" placeholder="Email" type="email">
+            <!-- Instead of 'type="email"', I can create my own pattern. Remove 'type' (or set it to 'text') and use 'pattern' attribute -->
+             <!-- <input (...) pattern=".+@.+\.edu" (...)> -->
+
+            <input autocomplet="off" autofocus name="phone" pattern="\d{3}-\s{3}-\d{4}" placeholder="Phone">
+            <button>Register</button>
+        </form>
+    </body>
+</html>
+
+<!--
+'button' is anotehr way to implement a button
+the type "email" is an officially supported type of input
+
+REGULAR EXPRESSIONS (REGEX)
+It is a pattern that allows you to validate input from users and make sure that that input matches some pattern
+.             any single character (except line terminators)
+*             zero or more characters
++             one or more characters
+?             0 or 1 character
+{n}           n occurrences
+{n,m}         at least n occurrences, at most m occurrences
+[0123456789]  any of the enclosed characters
+[0-9]         any of the range of characters
+\d            any digit
+\D            any character that is not a digit
+(...)
+
+DON'T TRUST USER'S INPUT! Code mechanisms that prevents malicious users
+RIght-click - Inspect - 'elements' tab
+You can not only see the code, but also change it. You won't change it on the server, only your own copy
+You can delete that pattern ans the web browser will let you register an email that won't follow the pattern
+
+
+An official source via which you can validade your actual HTML, making sure that it is well formed, and that it adheres to the HTML spec
+https://validator.w3.org/
+-->

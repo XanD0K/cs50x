@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+
+    {% if error %}
+
+        <div class="error-container">
+            <p class="error-template">
+                {{ error }}
+            </p>
+        </div>
+
+    {% endif %}
+
+    <h1>Search Stock</h1>
+    <div class="block">
+        <form action="/quote" method="post" class="form">
+            <div class="form-div">
+                <label for="symbol" class="form-label">Stock Symbol
+                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="symbol" name="symbol" placeholder="Symbol" required type="text">
+                </label>
+                <p class="error" id="search_error_message"></p>
+            </div>
+            <button class="btn btn-primary" id="search_button" type="submit">Search</button>
+        </form>
+    </div>
+
+{% endblock %}

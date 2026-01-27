@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <!-- YouTube and FontAwesome-->
+        <script src="static/scripts.js"></script>
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+        <title>Birthdays</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Birthdays</h1>
+        </div>
+        <div class="container">
+            <div class="section">
+                <h2>Add a Birthday</h2>
+                <!-- TODO: Create a form for users to submit a name, a month, and a day -->
+                 <form action="/" method="post">
+                    <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
+                    <input autocomplete="off" name="month" placeholder="Month" type="number" min="1" max="12">
+                    <input autocomplete="off" name="day" placeholder="Day" type="number" min="1" max="31">
+                    <input type="submit" value="Add birthday">
+                 </form>
+                 <div class="errors">
+                    {% for category, message in get_flashed_messages(with_categories=True) %}
+                        {% if category == "name_error" %}
+                            <p class="error">{{ message }}</p>
+                        {% elif category == "month_error" %}
+                            <p class="error">{{ message }}</p>
+                        {% elif category == "day_error" %}
+                            <p class="error">{{ message }}</p>
+                        {% elif category == "date_error" %}
+                            <p class="error">{{ message }}</p>
+                        {% endif %}
+                    {% endfor %}
+                 </div>
+            </div>
+
+            <div class="section">
+                <h2>All Birthdays</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Birthday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- TODO: Loop through the database entries to display them in this table -->
+                        {% for birthday in birthdays %}
+                            <tr>
+                                <td>{{ birthday.name }}</td>
+                                <td>{{ birthday.month }}/{{ birthday.day }}</td>
+                                <!-- Deregister -->
+                                <td>
+                                    <form action="/deregister" method="post">
+                                        <input name="id" type="hidden" value="{{ birthday.id }}">
+                                        <button type="submit">Deregister</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="playlist">
+        <iframe hidden id="yt-player" src="https://www.youtube.com/embed/dhdOPhTHeoE?enablejsapi=1" title="YouTube video player" allow="autoplay; encrypted-media" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <div id="controller">
+            <button id="music-toggle">
+                <i class="fa-solid fa-play"></i>
+            </button>
+        </div>
+    </body>
+</html>

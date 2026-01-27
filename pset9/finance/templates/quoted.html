@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+
+    <h1>Stock informations</h1>
+    <div class= "stock-container">
+        <div class="stock-info">
+            <p><span class="label">Company name: </span>{{ company_name }}</p>
+            <p><span class="label">Stock Symbol: </span>{{ symbol }}</p>
+            <p><span class="label">Current Price: </span>{{ price | usd }} </p>
+            <a href="/buy?symbol={{ symbol }}" class="btn btn-primary">Buy</a>
+        </div>
+    </div>
+    <div>
+        <a href="/quote" class="btn btn-primary">Back</a>
+    </div>
+    
+{% endblock %}

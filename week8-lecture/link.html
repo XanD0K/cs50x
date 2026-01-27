@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+    <head>
+        <title>link</title>
+    </head>
+    <body>
+        <!-- link to the image website -->
+        Visit <a href="image.html">Harvard</a>
+
+        <!-- linking to an actual URL -->
+        <p>
+            <!-- won't work because it misses the protocols -->
+            Visit (no protocols) <a href="harvard.edu">Harvard</a>
+        </p>
+        <p>
+            <!-- changing that website to a mallicious one is how phishing works -->
+            Visit (with protocols) <a href="https://www.harvard.edu/">Harvard</a>
+        </p>
+    </body>
+</html>
+
+<!--
+tag 'a' for anchor. It's used to create hyperlinks
+'href' attribute that stands for 'hyperreference', the destination of the link
+The values of 'href's in a web page have to be actual URLs, with protocol an all
+
+Right-Click on the web page and 'Inspect'
+Double click on anything on that page to change it in real time, although it won't affect the server at all, only the copy of that page
+Anotehr way to see the code is Right-Click and then "View Page Source"
+-->

@@ -1,0 +1,104 @@
+<!-- Same code, but without co-migling 2 languages-->
+
+<!DOCTYPE html>
+
+<html lang='en'>
+    <head>
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelector('form').addEventListener('submit', function(event) {
+                    alert('hello, ' + document.querySelector('#name').value);
+                    event.preventDefault();
+                });
+            });
+
+        </script>
+        <title>hello2</title>
+    </head>
+    <body>
+        <form>
+            <input autocomplete="off" autofocus id="name" name="name" placeholder="name" type="text">
+            <input type="submit">
+        </form>
+    </body>
+</html>
+
+<!--
+In JavaScript you can use JavaScript to query the DOM for specific elements, and then listen to events that might happen with those elements
+You don't need an 'onsubmit' attribute
+
+'addEventListener' -> allow to, after the page has been created, to start listening for some special event on that element
+That event being drawn from a list (that list of events from 'hello.html' file)
+
+'DOMContentLoaded' is an event that fires when the HTML is fully loaded and DOM is ready
+It is added when you want to wait until the whole page has been read into memory
+After that, execute the code
+Needed because the script is in <head>, before the <form> exists in the DOM
+
+
+'form.addEventListener('submit', greet);'
+Calling the 'form' variable, at method 'addEventListener'
+Telling it to add the event listener on the 'submit' event
+Whenever that event is triggered, call the function 'greet'
+You don't want to call the 'greet' function now, that's why you don't use 'greet()'
+Declare the 'greet' function above that code, before it is used
+
+By default, when formas are submitted, the indeed get submitted to the server
+To prevent that, when addind an event listener (using the 'greet' function) you're going to be passed in an argument, wheter you want it or not, that you can refer to as 'event' ('e' for short)
+It turns out that that argument that get automatically passed in, wheneber the event is triggered, allows to call 'event.preventdefault'
+'event.preventdefault' is literally telling the browser: when you get this event, let me do my own thing by alerting the user "alert('hello, ' + name);", but prevent the default behavior (submitting the form)
+
+Instead of doing:
+function greet(event)
+{
+    let name = document.querySelector('#name').value;
+    alert('hello, ' + name);
+    event.preventDefault();
+}
+You can do it like that:
+function greet(event)
+{
+    alert('hello, ' + document.querySelector('#name').value;);
+    event.preventDefault();
+}
+That's because you are only using 'name' a single time
+The same goes to 'greet'. If the 'greet' function is only going to be used once, you don't need to give it a name
+
+That way, the code:
+function greet(event)
+{
+    let name = document.querySelector('#name').value;
+    alert('hello, ' + name);
+    event.preventDefault();
+}
+let form = document.querySelector('form');
+form.addEventListener('submit', greet);
+
+Becomes:
+let form = document.querySelector('form');
+form.addEventListener('submit', function(event) {
+    alert('hello, ' + document.querySelector('#name').value);
+    event.preventDefault();
+});
+This uses a variable 'form' to get the one form in the page
+Then tell that 'form' to add an event listener for 'submit' event
+And you pass an anonymous function (lambda function) that does takes an argument, but does not need a name
+
+But we also don't need the 'form' variable:
+document.querySelector('form').addEventListener('submit', function(event) {
+    alert('hello, ' + document.querySelector('#name').value);
+    event.preventDefault();
+});
+
+That <script> tag can goes in the head or in the body, although puting it in the <head> without modifying the code might cause error
+Right-click - inspect - 'Console' tab
+You defined the <form> tag at the end of the code, while calling it in the beggining
+For it to work we add:
+document.addEventListener('DOMContentLoaded', function(){
+'DOMContentLoaded' -> WHen DOM content has been loaded, go ahead and execute these lines of code defined by another anonymous function
+
+Again, we don't need that <script> tag. See 'hello3.html' file
+
+-->
+

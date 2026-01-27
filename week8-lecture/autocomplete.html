@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <title>autocomplete</title>
+    </head>
+
+    <body>
+
+        <input autocomplete="off" autofocus placeholder="Query" type="text">
+
+        <ul></ul>
+
+        <script src="large.js"></script>
+        <script>
+
+            let input = document.querySelector('input');
+            input.addEventListener('keyup', function(event) {
+                let html = '';
+                if (input.value) {
+                    for (word of WORDS) {
+                        if (word.startsWith(input.value)) {
+                            html += `<li>${word}</li>`;
+                        }
+                    }
+                }
+                document.querySelector('ul').innerHTML = html;
+            });
+
+        </script>
+
+    </body>
+</html>
+
+<!--
+The <body> consists of a text input of type 'text' with a placeholder of 'Query'
+<ul> for an empty unordered list taht will be filled
+The file 'large.js' is a JavaScript version of the dictionary from pset5
+By including that file, the <script> has access to that WORDS variable
+Created variable 'input' and set it equal to querySelector return value, so that I can get a variable poiting to that text box
+Adding an event listener, listening for 'keyup' that calls a function whenever that happens
+In that function, set an 'html' variable to an empty string ('')
+If the user has typed something, iterate over that array of words (for each 'word' of 'WORDS')
+If the curent word 'startsWith' the input value, concatenate onto the HTML variable the followin html `<li>${word}</li>`
+`<li>${word}</li>` means: add to that 'html' variable another <li></li> tags inside of which is the word that has matched the first few characters
+Finally, ask the document to querySelect the 'ul' element, which previously was an empty unordered list, but change its innerHTML to be equal to the <li> tags that have jsut been created
+-->

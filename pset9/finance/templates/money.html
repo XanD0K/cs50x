@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+
+    {% if error %}
+
+        <div class="error-container">
+            <p class="error-template">
+                {{ error }}
+            </p>
+        </div>
+
+    {% endif %}
+
+    <h2>{{ username }}, you have {{ cash | usd }} available</h2>
+    <h3> Add money to your account:</h3>
+    <div class="block">
+        <form action="/money" method="post" class="form">
+            <div class="form-div">
+                <label for="money" class="form-label">Enter amount of money:
+                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="money" name="money" placeholder="Limit: $10,000" required type="number">
+                </label>
+                <p class="error" id="money_error_message"></p>
+            </div>
+            <button class="btn btn-primary" id="add_money_button" type="submit">Add money</button>
+        </form>
+    </div>
+
+{% endblock %}
