@@ -1,35 +1,45 @@
 #include <cs50.h>
 #include <stdio.h>
 
-void meow(void); //copy paste the prototype of the function (the first line of the function) you created so that it can be used in your main code.
+void meow(void); // Copy paste the prototype of the function (the first line of the function) you created so that it can be used in your main code
 
 int main(void)
 {
-    // int i = 3;
+    /*
+    int i = 3;
+    while (i > 0)
+    {
+        printf("meow\n");
+        i--;
+    }
+    */
 
-    // while (i > 0)
-    //{
-    //      printf("meow\n");
-    //      i--;
-    // }
 
-    // int i = 0;
+    /*
+    int i = 0;
+    while (i < 3)
+    {
+        printf("meow\n");
+        i++;
+    }
+    */
 
-    // while (i < 3)
-    //{
-    //      printf("meow\n");
-    //      i++;
-    // }
 
-    //for (int i = 0; i < 3; i++)
-    //{
-    //    prinf("meow\n");
-    //}
+    /*
+    while (true) → it will stay meowing forever. use ctrl+c to cancel the terminal
+    {
+        printf("meow\n");
+    }
+    */
 
-    //while (true) //it will stay meowing forever. use ctrl+c to cancel the terminal.
-    //{
-    //    printf("meow\n");
-    //}
+
+    /*
+    for (int i = 0; i < 3; i++)
+    {
+        prinf("meow\n");
+    }
+    */
+
 
     for (int i = 0; i < 3; i++)
     {

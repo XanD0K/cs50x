@@ -8,7 +8,7 @@ int main(void)
     {
         printf("Agreed.\n");
     }
-    else if (c == 'n' || c == 'N') //strings you use double quotes ("). char you use single quotes (').
+    else if (c == 'n' || c == 'N') //use double quotes (") for strings, and single quotes (') for chars
     {
         printf("Not agreed.\n");
     }

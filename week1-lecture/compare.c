@@ -21,6 +21,6 @@ int main(void)
 }
 
 // == -> check for equality
-// variables -> counter = counter +1;  //  counter += 1;  //  counter++; (only work with 1)  //
+// variables -> counter = counter +1;  //  counter += 1;  //  counter++; (only work with 1)
 // counter--; (reduce the value by 1)
 // char -> single characters

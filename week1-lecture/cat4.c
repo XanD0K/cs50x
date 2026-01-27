@@ -1,8 +1,8 @@
 #include <cs50.h>
 #include <stdio.h>
 
-int get_positive_int(void); //has output, but no input
-void meow(int n); //has input, but no output
+int get_positive_int(void); // Has output, but no input
+void meow(int n); // Has input, but no output
 
 int main(void)
 {
@@ -18,7 +18,7 @@ int get_positive_int(void)
         n = get_int("Number: ");
     }
     while (n < 1);
-    return n; //it needs to return the value so that you can use it on other functions. otherwise
+    return n; // It needs to return the value so that it can be used in other functions
 }
 
 void meow(int n)
