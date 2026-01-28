@@ -1,46 +1,43 @@
 #include <cs50.h>
 #include <stdio.h>
 
-void space(int n);
-void block(int m);
+void blocks(int n);
+void spaces(int m);
 
 int main(void)
 {
-    int height = get_int("Provide a positive number between 1 and 8: ");
-    if (height < 1 || height > 8)
+    int height;
+    do
     {
-        do
-        {
-            height = get_int("Please, provide a valid number between 1 and 8: ");
-        }
-        while (height < 1 || height > 8);
+        height = get_int("Provide a number between 1 and 8: ");
     }
+    while (height < 1 || height > 8);
 
-    int counter_space = height - 1;
-    int counter_block = 1;
+    int space_counter = height - 1;
+    int block_counter = 1;
 
-    for (int row = 0; row < height; row++)
+    for (int rows = 0; rows < height; rows++)
     {
-        space(counter_space);
-        block(counter_block);
-        counter_space--;
-        counter_block++;
+        spaces(space_counter);
+        blocks(block_counter);
+        space_counter--;
+        block_counter++;
         printf("\n");
     }
 }
 
-void space(int n)
+void blocks(int n)
 {
     for (int i = 0; i < n; i++)
     {
-        printf(" ");
+        printf("#");
     }
 }
 
-void block(int m)
+void spaces(int m)
 {
     for (int i = 0; i < m; i++)
     {
-        printf("#");
+        printf(" ");
     }
 }
