@@ -1,66 +1,69 @@
 #include <cs50.h>
 #include <stdio.h>
 
-int calculate_coins(int i);
+int get_coins(int change, int coin);
+int get_remainder(int change, int coin);
 
 int main(void)
 {
-    int cash = get_int("Change owned: ");
-    if (cash < 1)
+    int change;
+    do
     {
-        do
+        change = get_int("Change Owed: ");
+    }
+    while (change < 0);
+
+    int total_coins = 0;
+
+    int quarter = 25;
+    int dime = 10;
+    int nickel = 5;
+    int penny = 1;
+
+    if (change >= 25)
+    {
+        total_coins += get_coins(change, quarter);
+        change = get_remainder(change, quarter);
+        if (change == 0)
         {
-            cash = get_int("Please, provide a positive number: ");
+            printf("%i\n", total_coins);
+            return 0;
         }
-        while (cash < 1);
     }
 
-    int change = calculate_coins(cash);
-    printf("You've got %i coins.\n", change);
+    if (change >= 10)
+    {
+        total_coins += get_coins(change, dime);
+        change = get_remainder(change, dime);
+        if (change == 0)
+        {
+            printf("%i\n", total_coins);
+            return 0;
+        }
+    }
+
+    if (change >= 5)
+    {
+        total_coins += get_coins(change, nickel);
+        change = get_remainder(change, nickel);
+        if (change == 0)
+        {
+            printf("%i\n", total_coins);
+            return 0;
+        }
+    }
+
+    total_coins += change;
+    printf("%i\n", total_coins);
+    return 0;
 }
 
-int calculate_coins(int amount)
+int get_coins(int change, int coin)
 {
-    const int nickel = 5, dime = 10, quarter = 25;
-    int total_coins, result_quarter = 0, result_dime = 0, result_nickel = 0, rest_quarter = 0, rest_dime = 0, rest_nickel = 0;
+    return change / coin;
+}
 
-    if (amount >= 25)
-    {
-        result_quarter = amount / quarter;
-        rest_quarter = amount % quarter;
-        if (rest_quarter > 0)
-        {
-            result_dime = rest_quarter / dime;
-            rest_dime = rest_quarter % dime;
-            if (rest_dime > 0)
-            {
-                result_nickel = rest_dime / nickel;
-                rest_nickel = rest_dime % nickel;
-            }
-        }
-        total_coins = result_quarter + result_dime + result_nickel + rest_nickel;
-    }
-    else if (amount < 25 && amount >= 10)
-    {
-        result_dime = amount / dime;
-        rest_dime = amount % dime;
-        if (rest_dime > 0)
-        {
-            result_nickel = rest_dime / nickel;
-            rest_nickel = rest_dime % nickel;
-        }
-        total_coins = result_dime + result_nickel + rest_nickel;
-    }
-    else if (amount < 10 && amount >= 5)
-    {
-        result_nickel = amount / nickel;
-        rest_nickel = amount % nickel;
-        total_coins = result_nickel + rest_nickel;
-    }
-    else
-    {
-        total_coins = amount;
-    }
-
-    return total_coins;
+int get_remainder(int change, int coin)
+{
+    return change % coin;
 }
