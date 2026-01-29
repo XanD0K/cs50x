@@ -1,9 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
 
-int get_coins(int change, int coin);
-int get_remainder(int change, int coin);
-
 int main(void)
 {
     int change;
@@ -20,31 +17,33 @@ int main(void)
     int nickel = 5;
     int penny = 1;
 
-    // Quarter (25)
-    total_coins += get_coins(change, quarter);
-    change = get_remainder(change, quarter);
+    while (change > 0)
+    {
+        if (change >= 25)
+        {
+            total_coins++;
+            change -= quarter;
+        }
 
-    // Dime (10)
-    total_coins += get_coins(change, dime);
-    change = get_remainder(change, dime);
+        else if (change >= 10)
+        {
+            total_coins++;
+            change -= dime;
+        }
 
-    // Nickel (5)
-    total_coins += get_coins(change, nickel);
-    change = get_remainder(change, nickel);
+        else if (change >= 5)
+        {
+            total_coins++;
+            change -= nickel;
+        }
 
-    // Penny (1)
-    total_coins += change;
+        else
+        {
+            total_coins++;
+            change -= penny;
+        }
+    }
 
     printf("%i\n", total_coins);
     return 0;
-}
-
-int get_coins(int change, int coin)
-{
-    return change / coin;
-}
-
-int get_remainder(int change, int coin)
-{
-    return change % coin;
 }
