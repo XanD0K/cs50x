@@ -1,29 +1,21 @@
+// Determines the length of a string using a function
+
 #include <cs50.h>
 #include <stdio.h>
-#include <string.h>
 
-/*int string_length(string s);*/
+int string_length(string s);
 
 int main(void)
 {
+    // Prompt for user's name
     string name = get_string("Name: ");
-
-    /*
-    int n = 0;
-    while (name[n] != '\0')
-    {
-        n++;
-    }
-    printf("%i\n", n);
-    */
-
-    int length = strlen(name);
+    int length = string_length(name);
     printf("%i\n", length);
 }
 
-/*
 int string_length(string s)
 {
+    // Count number of characters up until '\0' (aka NUL)
     int n = 0;
     while (s[n] != '\0')
     {
@@ -31,4 +23,3 @@ int string_length(string s)
     }
     return n;
 }
-*/
