@@ -1,3 +1,5 @@
+// Recursion is a function that calls itself
+
 #include <cs50.h>
 #include <stdio.h>
 
@@ -11,14 +13,17 @@ int main(void)
 
 void draw(int n)
 {
+    // Base case
     if (n <= 0)
     {
-        return; //don't return a value, because it's void
+        return; // Don't return a value (void)
     }
 
+    // Print a pyramid of height n-1
     draw(n - 1);
 
-    for (int i = 0; i < n; i++) 
+    // Print one more row
+    for (int i = 0; i < n; i++)
     {
         printf("#");
     }
